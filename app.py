@@ -4,9 +4,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-# ==============================
-# 🎨 Styling
-# ==============================
+
+# Styling
+
 st.markdown("""
     <style>
     .main {
@@ -22,9 +22,9 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ==============================
-# 📦 Load & Train Model
-# ==============================
+
+# Load & Train Model
+
 @st.cache_data
 def load_model():
     data = pd.read_csv("data/train.csv")
@@ -49,9 +49,9 @@ def load_model():
 
 model = load_model()
 
-# ==============================
-# 🏠 UI
-# ==============================
+
+#UI
+
 st.title("🏠 House Price Predictor")
 st.write("Enter house details to predict price")
 
@@ -62,9 +62,9 @@ bathrooms = st.number_input("Bathrooms", 1, 5, 2)
 quality = st.slider("Overall Quality (1-10)", 1, 10, 5)
 garage = st.number_input("Garage Capacity", 0, 5, 2)
 
-# ==============================
-# 🔮 Prediction
-# ==============================
+
+# Prediction
+
 if st.button("Predict Price"):
     input_data = pd.DataFrame([[area, bedrooms, bathrooms, quality, garage]],
                              columns=['GrLivArea', 'BedroomAbvGr', 'FullBath',
